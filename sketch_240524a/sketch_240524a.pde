@@ -30,8 +30,8 @@ void draw() {
   fill(98,245,31); // green color
   // καλω την συναρτηση απεικονισης του radar 
   drawRadar(); 
-  drawLine();
-  drawObject();
+  drawGrammes();
+  draw_antikeimeno();
   drawText();
 }
 void serialEvent (Serial myPort) { // διαβαζει απο το σειριακο 
@@ -68,7 +68,7 @@ void drawRadar() {
   line((-width/2)*cos(radians(30)),0,width/2,0);
   popMatrix();
 }
-void drawObject() {
+void draw_antikeimeno() {
   pushMatrix();
   translate(width/2,height-height*0.074); 
   strokeWeight(9);
@@ -81,15 +81,15 @@ void drawObject() {
   }
   popMatrix();
 }
-void drawLine() {
+void drawGrammes() {
   pushMatrix();
   strokeWeight(9);
   stroke(30,250,60);
   translate(width/2,height-height*0.074); 
-  line(0,0,(height-height*0.12)*cos(radians(iAngle)),-(height-height*0.12)*sin(radians(iAngle))); // draws the line according to the angle
+  line(0,0,(height-height*0.12)*cos(radians(iAngle)),-(height-height*0.12)*sin(radians(iAngle))); // θετω τις γραμμες συμφωνα με τις μοιρες
   popMatrix();
 }
-void drawText() { // αναπαριστο τα γραμματα κατω 
+void drawText() { // αναπαριστω τα γραμματα κατω 
   pushMatrix();
   if(iDistance > 40) {
     noObject = "Out of Range";
@@ -108,7 +108,7 @@ void drawText() { // αναπαριστο τα γραμματα κατω
   text("40cm", width - width * 0.0729, height - height * 0.0833);
   textSize(40);
   text("chernobyl", width - width * 0.875, height - height * 0.0277);
-  text("Angle: " + iAngle + " °", width - width * 0.58, height - height * 0.0277); // Moved slightly to the left
+  text("Angle: " + iAngle + " °", width - width * 0.58, height - height * 0.0277); // να στριβει αριστερα 
   
   // φτιαχνω το μεγεθος 
   textSize(40);

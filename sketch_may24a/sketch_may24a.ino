@@ -18,7 +18,7 @@ void loop() {
   for(int i=15;i<=165;i++){  
   myServo.write(i);// ορισμος της γωνιας του servo 
   delay(30);// καθυστερω για να επιστρεψη το μοτερ στη θεση του 
-  distance = calculateDistance();// καλω την συναρτηση που υπλογιζει την αποσταση του sensor απο καθε τυχον αντικειμενο 
+  distance = ypologismosApostashs();// καλω την συναρτηση που υπλογιζει την αποσταση του sensor απο καθε τυχον αντικειμενο 
   
   Serial.print(i); // στελνει την αποσταση στο σειριακο μου ,εκτυπωση γωνιας 
   Serial.print(","); // Αυτο το κανω για το proccessing ,διαχωρισμος δεδομενων 
@@ -29,7 +29,7 @@ void loop() {
   for(int i=165;i>15;i--){  
   myServo.write(i);
   delay(30);
-  distance = calculateDistance();
+  distance = ypologismosApostashs();
   Serial.print(i);
   Serial.print(",");
   Serial.print(distance);
@@ -37,7 +37,7 @@ void loop() {
   }
 }
 // καλω τον υπολογισμο της αποστασης 
-int calculateDistance(){ 
+int ypologismosApostashs(){ 
   
   digitalWrite(trigPin, LOW); 
   delayMicroseconds(2);//το θετω να ξεκινησει σε χαμηλους ρυθμους 2 μικροδευτερολεπτα 
