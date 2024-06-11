@@ -5,7 +5,7 @@ const int trigPin = 10;
 const int echoPin = 11;
 // Μεταβλητες για διαρκεια και αποσταση 
 long diarkeia;
-int distance;
+int apostash;
 Servo myServo; // δημιουργω το servo αντικειμενο που θα χρησιμιμοποιει τον σενσορα 
 void setup() {
   pinMode(trigPin, OUTPUT); // θετω το τριγ σαν output 
@@ -18,21 +18,21 @@ void loop() {
   for(int i=15;i<=165;i++){  
   myServo.write(i);// ορισμος της γωνιας του servo 
   delay(30);// καθυστερω για να επιστρεψη το μοτερ στη θεση του 
-  distance = ypologismosApostashs();// καλω την συναρτηση που υπλογιζει την αποσταση του sensor απο καθε τυχον αντικειμενο 
+  apostash = ypologismosApostashs();// καλω την συναρτηση που υπλογιζει την αποσταση του sensor απο καθε τυχον αντικειμενο 
   
   Serial.print(i); // στελνει την αποσταση στο σειριακο μου ,εκτυπωση γωνιας 
   Serial.print(","); // Αυτο το κανω για το proccessing ,διαχωρισμος δεδομενων 
-  Serial.print(distance); // στελνει την τιμη της αποστασης 
+  Serial.print(apostash); // στελνει την τιμη της αποστασης 
   Serial.print("."); // αυτο το κανω για το proccessing ,διαχωρισμος δεδομενων 
   }
   // κανει λοοπ τα προηγουμενα 
   for(int i=165;i>15;i--){  
   myServo.write(i);
   delay(30);
-  distance = ypologismosApostashs();
+  apostash = ypologismosApostashs();
   Serial.print(i);
   Serial.print(",");
-  Serial.print(distance);
+  Serial.print(apostash);
   Serial.print(".");
   }
 }
@@ -46,6 +46,6 @@ int ypologismosApostashs(){
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   diarkeia = pulseIn(echoPin, HIGH); // διαβαζω απο το echo και βγαζω τα αποτελεσματα ,οσο ειναι σε υψηλη κατασταση στελνει τα δεδομενα του σενσορ 
-  distance= diarkeia*0.034/2;// ο χρονος του ταξιδιου του υπερηχητικου σηματος (μικροδευτερολεπτα) πολλαπλασιαζεται με την ταχυτητα του ηχου του αερα και το διαιρω δια 2 για να βρω την αποσταση 
-  return distance;//επιστρεφω την αποσταση 
+  apostash= diarkeia*0.034/2;// ο χρονος του ταξιδιου του υπερηχητικου σηματος (μικροδευτερολεπτα) πολλαπλασιαζεται με την ταχυτητα του ηχου του αερα και το διαιρω δια 2 για να βρω την αποσταση 
+  return apostash;//επιστρεφω την αποσταση 
 }
