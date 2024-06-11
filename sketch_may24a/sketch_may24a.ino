@@ -4,7 +4,7 @@
 const int trigPin = 10;
 const int echoPin = 11;
 // Μεταβλητες για διαρκεια και αποσταση 
-long duration;
+long diarkeia;
 int distance;
 Servo myServo; // δημιουργω το servo αντικειμενο που θα χρησιμιμοποιει τον σενσορα 
 void setup() {
@@ -45,7 +45,7 @@ int ypologismosApostashs(){
   digitalWrite(trigPin, HIGH); 
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  duration = pulseIn(echoPin, HIGH); // διαβαζω απο το echo και βγαζω τα αποτελεσματα ,οσο ειναι σε υψηλη κατασταση στελνει τα δεδομενα του σενσορ 
-  distance= duration*0.034/2;// ο χρονος του ταξιδιου του υπερηχητικου σηματος (μικροδευτερολεπτα) πολλαπλασιαζεται με την ταχυτητα του ηχου του αερα και το διαιρω δια 2 για να βρω την αποσταση 
+  diarkeia = pulseIn(echoPin, HIGH); // διαβαζω απο το echo και βγαζω τα αποτελεσματα ,οσο ειναι σε υψηλη κατασταση στελνει τα δεδομενα του σενσορ 
+  distance= diarkeia*0.034/2;// ο χρονος του ταξιδιου του υπερηχητικου σηματος (μικροδευτερολεπτα) πολλαπλασιαζεται με την ταχυτητα του ηχου του αερα και το διαιρω δια 2 για να βρω την αποσταση 
   return distance;//επιστρεφω την αποσταση 
 }
